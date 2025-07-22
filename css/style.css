@@ -70,7 +70,7 @@ h5 {
 .fill img {
   flex-shrink: 0;
   min-width: 100%;
-  min-height: 100%
+  min-height: 100%;
 }
 
 .person-info {
@@ -129,13 +129,19 @@ h5 {
   height: 0.6875rem;
 }
 
+.main-content {
+  width: 100%;
+  display: flex;
+  gap: 1.25rem;
+}
+
 .experience-block {
   width: 70vw;
   height: 70vw;
 }
 
 .experience-header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .experience-card {
@@ -144,6 +150,7 @@ h5 {
   border-radius: 0.625rem;
   padding: 0.5rem;
   box-sizing: border-box;
+  margin-top: 0.7rem;
 }
 
 #most-recent {
@@ -170,6 +177,11 @@ h5 {
   font-size: 0.5rem;
 }
 
+.experience-cards {
+  list-style-type: none;
+  padding: 0;
+}
+
 .job-content {
   display: flex;
   justify-content: space-between;
@@ -180,11 +192,74 @@ h5 {
 }
 
 .job-hours {
+  color: #3F3D3D;
   font-size: 0.5rem;
+}
+
+#most-recent .job-hours {
+  color: white;
 }
 
 .job-descriptions {
   margin: 0;
   font-size: 0.5rem;
   width: 60%;
+  list-style-type: disc;
+}
+
+.tools-block {
+  width: calc(30vw - 2.5rem);
+}
+
+.tools-header {
+  padding-bottom: 0.4rem;
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tools-box {
+  background-color: white;
+  padding: 1rem;
+  position: relative;
+  display: grid;
+  width: 12vw;
+  margin-top: 0.7rem;
+  border-radius: 0.375rem;
+}
+
+.tools-badge {
+  position: absolute;
+  top: -0.3125rem;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin-inline: auto;
+  font-size: 0.3125rem;
+  border-radius: 3.75rem;
+  background-color: black;
+  color: white;
+  padding: 0.125rem 0.375rem;
+}
+
+.icons {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 1.8rem;
+}
+
+.grid-el {
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
 }
