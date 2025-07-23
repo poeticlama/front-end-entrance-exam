@@ -14,3 +14,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.getElementById('downloadPdf').addEventListener('click', function () {
+    const element = document.getElementById('resume');
+    const name = document.getElementById('name').textContent.trim();
+
+    const opt = {
+        filename:  `${name}_Resume.pdf`,
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: {
+            scale: 2,
+            scrollY: 0,
+            useCORS: true
+        },
+        jsPDF: {
+            unit: 'px',
+            format: [element.offsetWidth, element.scrollHeight],
+            orientation: 'portrait'
+        }
+    };
+
+    html2pdf().set(opt).from(element).save();
+});
