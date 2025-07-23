@@ -85,11 +85,11 @@ h5 {
   font-size: 0.625rem;
 }
 
-.name {
+#name {
   font-weight: 600;
 }
 
-.profession {
+#profession {
   color: #5C5C5C;
   font-weight: 500;
 }
@@ -140,7 +140,7 @@ h5 {
   height: 70vw;
 }
 
-.experience-header {
+#experience-header {
   margin-bottom: 0.4rem;
 }
 
@@ -165,7 +165,7 @@ h5 {
   margin-bottom: 0.5rem;
 }
 
-.most-recent-badge {
+#most-recent-badge {
   font-size: 0.5rem;
   background-color: #7E731266;
   color: #DDF163;
@@ -211,7 +211,7 @@ h5 {
   width: calc(30vw - 2.5rem);
 }
 
-.tools-header {
+#tools-header {
   padding-bottom: 0.4rem;
 }
 
