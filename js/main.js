@@ -1,4 +1,4 @@
-import '../css/style.css'
+import '../css/style.css';
 
 document.addEventListener('DOMContentLoaded', function() {
     const editableElements = document.querySelectorAll('[contenteditable="true"]');
