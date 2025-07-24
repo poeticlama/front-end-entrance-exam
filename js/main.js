@@ -9,16 +9,27 @@ document.addEventListener('DOMContentLoaded', function() {
             el.textContent = savedValue;
         }
 
-        el.addEventListener('blur', async function() {
-            const color = this.style.color;
-            localStorage.setItem(this.id, this.textContent);
-            this.style.color = '#00ff33';
-            setTimeout(() => {
-                this.style.color = color;
-            }, 500);
+        el.addEventListener('blur', function() {
+            saveEditableElement(this);
+        });
+
+        el.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                saveEditableElement(this);
+            }
         });
     });
 });
+
+function saveEditableElement(element) {
+    const color = element.style.color;
+    localStorage.setItem(element.id, element.textContent);
+    element.style.color = '#00ff33';
+    setTimeout(() => {
+        element.style.color = color;
+    }, 500);
+}
 
 function createRipple(event) {
     event.stopPropagation();
@@ -54,12 +65,12 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
     rippleElements.forEach(element => {
         element.remove();
     });
-
+    const name = document.getElementById('name').textContent;
     const element = document.getElementById('resume');
     element.style.marginTop = '0';
 
     const opt = {
-        filename: 'Karthik_SR_Resume.pdf',
+        filename: `${name}_Resume.pdf`,
         image: { type: 'jpeg', quality: 1 },
         html2canvas: {
             scale: 2,
