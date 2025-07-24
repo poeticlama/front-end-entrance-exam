@@ -20,7 +20,41 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+function createRipple(event) {
+    event.stopPropagation();
+    const element = event.currentTarget;
+    const rect = element.getBoundingClientRect();
+
+    const circle = document.createElement("span");
+    const diameter = Math.max(element.clientWidth, element.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = `${diameter}px`;
+    circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - rect.left - radius}px`;
+    circle.style.top = `${event.clientY - rect.top - radius}px`;
+    circle.classList.add("ripple");
+
+    const ripple = element.getElementsByClassName("ripple")[0];
+
+    if (ripple) {
+        ripple.remove();
+    }
+
+    element.appendChild(circle);
+}
+
+const rippleAnimated = document.getElementsByClassName("ripple-animated");
+for (const elem of rippleAnimated) {
+    elem.addEventListener("click", createRipple);
+}
+
 document.getElementById('downloadPdf').addEventListener('click', function () {
+    const rippleElements = document.querySelectorAll('.ripple');
+    rippleElements.forEach(element => {
+        element.remove();
+    });
+
     const element = document.getElementById('resume');
     element.style.marginTop = '0';
 
