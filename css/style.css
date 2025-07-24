@@ -28,11 +28,12 @@ h5 {
 
 .container {
   width: 95vw;
-  margin: 2.5vh auto 2rem;
-  padding: 0;
+  margin: 0 auto;
+  padding: 0.8rem 0;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  box-sizing: border-box;
 }
 
 .content-block {
@@ -367,7 +368,7 @@ h5 {
 .download-container {
   display: flex;
   justify-content: center;
-  margin: 0 0 1rem;
+  margin: 2rem 0 1rem;
 }
 
 #downloadPdf {

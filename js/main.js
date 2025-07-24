@@ -17,22 +17,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById('downloadPdf').addEventListener('click', function () {
     const element = document.getElementById('resume');
-    const name = document.getElementById('name').textContent.trim();
+    element.style.marginTop = '0';
 
     const opt = {
-        filename:  `${name}_Resume.pdf`,
+        filename: 'Karthik_SR_Resume.pdf',
         image: { type: 'jpeg', quality: 1 },
         html2canvas: {
             scale: 2,
+            useCORS: true,
             scrollY: 0,
-            useCORS: true
+            y: -element.offsetTop
         },
         jsPDF: {
             unit: 'px',
-            format: [element.offsetWidth, element.scrollHeight],
+            format: [element.scrollWidth, element.scrollHeight + 30],
             orientation: 'portrait'
         }
     };
 
     html2pdf().set(opt).from(element).save();
+    element.style.marginTop = '2.5vh';
 });
+
