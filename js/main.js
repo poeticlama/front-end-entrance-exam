@@ -9,8 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
             el.textContent = savedValue;
         }
 
-        el.addEventListener('blur', function() {
+        el.addEventListener('blur', async function() {
+            const color = this.style.color;
             localStorage.setItem(this.id, this.textContent);
+            this.style.color = '#00ff33';
+            setTimeout(() => {
+                this.style.color = color;
+            }, 500);
         });
     });
 });
